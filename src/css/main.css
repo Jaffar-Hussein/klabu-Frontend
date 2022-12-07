@@ -1,0 +1,38 @@
+.logo{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+.nav.navbar-nav li a {
+    color: #fff !important;
+  }
+  .navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+  }
+ 
+  .top_page{
+    position: relative;
+  
+
+
+  }
+   .bgGradient{
+    position: absolute;
+    top: 0;
+    right:0;
+    z-index: -1;
+    transform: rotate(0.43deg) !important;
+  }
+  .mini-pics{
+    position: absolute;
+    top: 15%;
+    right: 5%;
+
+  }
+ 
+  .hero{
+    position: relative;
+  }
