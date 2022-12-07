@@ -4,6 +4,7 @@ import SignUp from './components/signup';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from './components/Home';
 
+window.user = "Nathan";
 
 function App() {
   let navigate = useNavigate();
