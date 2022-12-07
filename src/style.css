@@ -15,10 +15,10 @@ form input{
   }
   
   
-  /* .login-heading {
-    font-weight: 300;
+  .login-heading {
+    letter-spacing: 5px;
   }
-   */
+  
   .btn-primary{
     background-color:#F37A37!important;
     border-color: #F37A37 !important;
