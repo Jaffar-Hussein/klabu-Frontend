@@ -1,0 +1,39 @@
+form input{
+    background-color:transparent;
+}
+.bg-image {
+    background-image: url('assets/signin.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .signup-image {
+    background-image: url('assets/loginBg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  
+  /* .login-heading {
+    font-weight: 300;
+  }
+   */
+  .btn-primary{
+    background-color:#F37A37!important;
+    border-color: #F37A37 !important;
+  }
+  .btn-secondary{
+    background-color:transparent!important;
+    border-color: #F37A37 !important;
+    color: #F37A37 !important;
+  }
+  .login {
+    min-height: 100vh;
+    background-color: #1E1E1E;;
+  }
+  .userName, .pass{
+    background: transparent !important;
+    
+
+  }
