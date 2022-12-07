@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./navbar";
 import Hero from "./HeroSection"
+import Popular from "./popular";
 import Vector from '../assets/Vector.svg'
 import '../css/main.css'
 
@@ -13,6 +14,7 @@ function Home() {
          <NavBar />
 
         <Hero />
+        <Popular />
    
 
       </div>

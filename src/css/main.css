@@ -36,3 +36,14 @@
   .hero{
     position: relative;
   }
+  .title{
+    color: #F37A37 !important;
+  }
+  .spacing{
+    letter-spacing: 5px !important;
+  }
+ .popular-img{
+  height: 50%;
+  width: 30%;
+  
+ }
