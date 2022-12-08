@@ -19,6 +19,18 @@
 
 
   }
+  .call{
+    position: relative;
+    
+  }
+  .recipeBook{
+    position: absolute;
+    bottom:1;
+  }
+  .actiono-her{
+    position: absolute;
+    
+  }
    .bgGradient{
     position: absolute;
     top: 0;
