@@ -1,7 +1,11 @@
 import '../style.css';
 import login from '../assets/login.png'
+import { useForm } from 'react-hook-form';
 
 function Login(){
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+  console.log(errors.phonenumber?.message);
     return (
         <>
         
@@ -18,23 +22,42 @@ function Login(){
           <div className="row ">
             <div className="col-md-9 col-lg-8   mx-auto ">
               <h3 className="login-heading mb-4 text-white text-center" >Sign In</h3>
-              <form  className="box" role="form">
-                <div className="form-floating mb-3">
-                  <input type="email"  name="username" className="form-control userName text-white" id="floatingInput" placeholder="name@example.com"/>
+              <form onSubmit={handleSubmit(onSubmit)}  role="form" className="box needs-validation"  noValidate>
+                <div className="form-floating mb-3 has-validation">
+                  <input type="tel" name="username" className={`form-control userName text-white ${errors.phonenumber ? 'is-invalid' : ''}`} id="floatingInput" placeholder="phonenumber"
+                   {...register(
+                    "phonenumber", 
+                    {required : "Input your phone number to login"
+                   , min: 
+                   {
+                    value:12,
+                    message:"The phone number is too short"
+                  }, pattern:{ 
+                    value:/^\+254/i,
+                    message:"Input your phone number +254.."
+                  }})}  
+
+                   />
                   <label className='text-white' >+254</label>
+                  <div className="invalid-feedback" id="floatingInputFeedback">{errors.phonenumber?.message}</div>
                 </div>
+                
+
                 <div className="form-floating mb-3">
-                  <input type="password"  name="password" className="form-control pass" id="floatingPassword" placeholder="Password"/>
+                  <input type="password" name="password" className={`form-control pass ${errors.password ? 'is-invalid' : ''} `}id="floatingPassword" autoComplete="current-password webauthn" placeholder="password"
+                   {...register("password", {required: "Please input your password"})} />
                   <label className='text-white' >Enter Password</label>
+                  <div className="invalid-feedback" id="floatingPasswordFeedback">{errors.password?.message}</div>
                 </div>
 
                 <div className="form-check mb-3">
-                  <input className="form-check-input"   type="checkbox" value="" id="rememberPasswordCheck"/>
+                <input className={`form-check-input ${errors.Tearms ? 'is-invalid' : ''} `}  type="checkbox" id="rememberPasswordCheck" 
+                placeholder="Tearms and Conditions" {...register("Tearms", {required: "Check to agree to the Tearms and Conditions"})} />
                   <label className="form-check-label text-white">
                     I agree to terms and condition
                   </label>
+                  <div className="invalid-feedback" id="floatingPasswordFeedback">{errors.Tearms?.message}</div>
                 </div>
-
                 <div className="d-grid form mb-3">
                   <button className="btn btn-lg btn-primary btn-login  mb-2" type="submit">Sign in</button>
                   <div className="text-center">
