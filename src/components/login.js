@@ -6,7 +6,7 @@ function Login(){
  
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
-    fetch('https://127.0.0.1:3000/login', {
+    fetch('http://127.0.0.1:3000/login', {
       
     method: 'POST',
     headers: {
@@ -17,10 +17,7 @@ function Login(){
       "phone":data.phonenumber,
       "password":data.password
     })
-    .then(res => res.json())
-  .then(d=> {
-    console.log(d)
-  })
+  
   });
   };
   console.log(errors.phonenumber?.message);
@@ -59,7 +56,7 @@ function Login(){
                   }})}  
 
                    />
-                  <label className='text-secondary' >+254</label>
+                  <label className='text-secondary' >Phone Number</label>
                   <div className="invalid-feedback" id="floatingInputFeedback">{errors.phonenumber?.message}</div>
                 </div>
                 
