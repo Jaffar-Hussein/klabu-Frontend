@@ -44,7 +44,7 @@ return(
                   }})}  
 
                    />
-                  <label className='text-white' >+254</label>
+                  <label className='text-secondary' >+254</label>
                   <div className="invalid-feedback" id="floatingInputFeedback">{errors.phonenumber?.message}</div>
                 </div>
                <div className="form-floating mb-3">
@@ -62,7 +62,7 @@ return(
                <div className="form-floating mb-3">
                   <input type="password" name="password" className={`form-control pass ${errors.password ? 'is-invalid' : ''} `}id="floatingPassword" autoComplete="current-password webauthn" placeholder="password"
                    {...register("password", {required: "Please input your password"})} />
-                  <label className='text-white' >Enter Password</label>
+                  <label className='text-secondary' >Enter Password</label>
                   <div className="invalid-feedback" id="floatingPasswordFeedback">{errors.password?.message}</div>
                 </div>
 
