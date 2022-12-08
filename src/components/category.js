@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../css/main.css'
 import Cards from "./Cards";
 
-function Category({recipes, categories}) {
+function Category({ recipes, categories }) {
     const [dessert, setDessert] = useState([]);
     const [lunch, setLunch] = useState([]);
     const [dinner, setDinner] = useState([]);
@@ -23,25 +23,39 @@ function Category({recipes, categories}) {
         fetch("http://localhost:3000/categories/3")
             .then(r => r.json())
             .then(data => setDinner(data.recipes))
-    },[]);
+    }, []);
 
 
     return (
 
-   
-           <div>
-           <p className="mx-5">Pastries</p>
-           <Cards recipes={dessert}/>
-           <p className="mx-5">Lunch Recipe</p>
-           <Cards recipes={lunch}/>
-           <p className="mx-5"> Dinner Recipe</p>
-            <Cards recipes={dinner}/>
-           </div>
+
+        <div>
+            {dessert ?
+                <div className="my-5 ">
+                    <p className="h6  m-5 ">Pastries</p>
+                    <Cards recipes={dessert} />
+                </div>
+                :
+                <p>Data not yet populated</p>
+            }
+            {lunch ?
+                <div className="my-5">
+                    <p className=" h6 m-5">Lunch Recipe</p>
+                    <Cards recipes={lunch} />
+                </div> :
+                <p>Data not yet populated</p>}
+            {dinner ?
+                <div className="my-5">
+                    <p className=" h6 m-5">Dinner Recipe</p>
+                    <Cards recipes={dinner} />
+                </div> :
+                <p>Data not yet populated</p>}
+
+         
+        </div>
 
     )
 
 }
-
-
 
 export default Category;
