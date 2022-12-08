@@ -13,23 +13,25 @@ function Home() {
   useEffect(() => {
     fetch(`http://localhost:3000/categories`)
     .then(r => r.json())
-    .then(data => setCategories(data))
+    .then((data) => setCategories(data));
   },[])
   useEffect(() => {
     fetch(`http://localhost:3000/recipes`)
     .then(r => r.json())
-    .then(data => setCategories(data))
-  },[])
+    .then((data) => setRecipes(data));
+  },[]);
 
   return (
     <>
       <div className="top_page">   
+      
          <NavBar />
 
         <Hero />
-        <Popular />
-        <Category recipes={categories}/>
-   
+        {/* <Popular recipes={recipes} cat={categories} /> */}
+        <Category recipes={recipes} categories={categories}/>
+        {/* <Cards recipes={recipes} cat={categories} /> */}
+
 
       </div>
       
