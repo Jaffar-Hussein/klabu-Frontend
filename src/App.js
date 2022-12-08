@@ -14,12 +14,12 @@ function App() {
 
   let navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:3000/recipes`)
+    fetch(`https://localhost:3000/recipes`)
       .then(r => r.json())
       .then((data) => setRecipes(data));
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:3000/me`).then((r)=> {
+    fetch(`https://localhost:3000/me`).then((r)=> {
       if (r.ok){
         r.json().then((user) => setUser(user));
       }

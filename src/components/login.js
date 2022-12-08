@@ -3,9 +3,30 @@ import login from '../assets/login.png'
 import { useForm } from 'react-hook-form';
 
 function Login(){
+ 
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    fetch('https://127.0.0.1:3000/login', {
+      
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "phone":data.phonenumber,
+      "password":data.password
+    })
+    .then(res => res.json())
+  .then(d=> {
+    console.log(d)
+  })
+  });
+  };
   console.log(errors.phonenumber?.message);
+
+
+
     return (
         <>
         
