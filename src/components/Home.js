@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./navbar";
 import Hero from "./HeroSection"
+import Footer from "./Footer";
 import Popular from "./popular";
 import Cards from "./Cards";
 import CallAction from "./CallAction";
@@ -33,6 +34,7 @@ function Home() {
         <Category recipes={recipes} categories={categories}/>
         {/* <Cards recipes={recipes} cat={categories} /> */}
         {<CallAction/>}
+        <Footer/>
       </div>
       
       <img src={Vector} className="bgGradient img-fluid"
