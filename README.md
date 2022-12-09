@@ -60,8 +60,8 @@ The live link is below:
 ## Authors Info
 Can be reached by the email below for questions and comments 
 
-[Email](hanan.ibrahim@student.moringaschool.com)
+[Email](jaffar.gura@student.moringaschool.com)
 
 [Go Back to the top](#By Jaffar Hussein)
 ## License
-Find the license information [here](https://github.com/Hanan-Hussein/GithubSearch/blob/master/LICENSE) 
+Find the license information [here](https://github.com/Jaffar-Hussein/klabu-frontend/blob/master/licence) 
