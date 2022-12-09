@@ -4,9 +4,10 @@ import foodA from '../assets/foodA.png'
 import foodB from '../assets/FoodB.png'
 
 
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 function HeroSection() {
+    
     return (
         <div className="container">
             <div className="row align-items-center hero" >
@@ -17,11 +18,11 @@ function HeroSection() {
                         break out this collection of favorite soups, stews
                         casseroles, and meaty classics.</p>
                     {/* <div className='d-flex justify-content-center '> */}
-                    <Link>
-                        <button className="btn btn-primary rounded-pill ">
+                    <NavLink>
+                        <button className="btn btn-primary rounded-pill " to="/upload">
                             Upload Recipe
                         </button>
-                    </Link>
+                    </NavLink>
 
                     {/* </div> */}
 

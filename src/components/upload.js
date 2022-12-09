@@ -16,22 +16,23 @@ function Upload({ recipes, user, setRecipes }) {
     }, []);
     function handleChange(e) {
         const value = e.target.value;
-        categories.map((category) => {
-            if (category.name === e.target.value) {
-                setRecords({
-                    ...records,
-                    [e.target.name]: category.id
-                });
-            }
-        })
+        if(e.target.name === "category"){
+            console.log(">>",value);
+        }
+        setRecords({
+            ...records,
+            [e.target.name]: value
+        });
+
 
     }
+
     function handleSubmit(e) {
         e.preventDefault();
 
-        const formData = { title: records.title, category_id: records.category, description: records.description, picture: records.picture, ingredients: records.ingredients, direction: records.direction, user_id: user.id };
+        const formData = { title: records.title, category_id: records.category, description: records.description, picture: records.picture, ingredient: records.ingredient, direction: records.direction, user_id: user.id };
 
-        console.log(">>>>>",formData);
+        console.log(">>>>>", formData);
         fetch("http://localhost:3000/recipes", {
             method: "POST",
             headers: {
@@ -41,7 +42,7 @@ function Upload({ recipes, user, setRecipes }) {
         })
             .then(r => r.json())
             .then((newItem) => setRecipes([...recipes, newItem]));
-        // navigate('/');
+        navigate('/');
     }
 
     return (
@@ -67,10 +68,10 @@ function Upload({ recipes, user, setRecipes }) {
 
                             <div className="my-5">
                                 <label>Category</label>
-                                <select onChange={handleChange} name="category" value="Nonsensical" className=' form-select' >
+                                <select onChange={handleChange} name="category" value="pastries" className=' form-select' >
 
                                     {categories.map((c, index) => {
-                                        return <option key={index} value={c.name}>
+                                        return <option key={index} value={c.id}>
                                             {c.name}
                                         </option>;
                                     })}
@@ -90,12 +91,12 @@ function Upload({ recipes, user, setRecipes }) {
                         <div className="col-md-6">
                             <div className="mb-5">
                                 <label>Ingredients</label>
-                                <textarea className="form-control" placeholder="Enter ingredients" name="ingredients" rows={5} />
+                                <textarea className="form-control" placeholder="Enter ingredients" name="ingredient" rows={5} />
 
                             </div>
                             <div>
                                 <label>Directions</label>
-                                <textarea className="form-control" placeholder="Enter Direction" name="directions" rows={7} />
+                                <textarea className="form-control" placeholder="Enter Direction" name="direction" rows={7} />
 
                             </div>
                         </div>

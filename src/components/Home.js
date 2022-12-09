@@ -10,6 +10,7 @@ import Vector from '../assets/Vector.svg'
 import '../css/main.css'
 
 function Home({user}) {
+
   const [categories, setCategories] = useState([]);
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {

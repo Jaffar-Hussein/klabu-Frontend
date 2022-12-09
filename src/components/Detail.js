@@ -15,15 +15,31 @@ function Detail({ user }) {
             .then(response => response.json())
             .then((rec) => setFiltered(rec));
     }, [])
+
     let nameArr = []
+    let otherArr = false;
     let dateUnix = Date.parse('2020-09-09T21:00:14.114-04:00');
     const time = new Date(filtered.created_at).toLocaleTimeString();
+    // if (filtered.ingredients.includes(",")){
+    // }
+
+    if (filtered.ingredients) {
+        // console.log ( ) 
+        otherArr = filtered.ingredients.includes(',')
+
+    }
     if (typeof filtered.ingredients !== 'undefined') {
-        nameArr = filtered.ingredients.split(',');
+        //    console.log(filtered.ingredients.includes(","));
+
+
+        nameArr= filtered.ingredients.split(',')
+
 
 
     }
     console.log(nameArr);
+    console.log(otherArr);
+
 
     return (
         <>
@@ -45,9 +61,18 @@ function Detail({ user }) {
 
             <div className="m-5 ">
                 <p className="h3 my-3">Ingredients</p>
-                {nameArr.map((arr) => {
-                   return <li key={arr} className="">{arr}</li>
-                })}
+
+                {otherArr === true ?
+
+                    nameArr.map((arr) => {
+                        return <li key={arr} className="">{arr}</li>
+                    })
+                    :
+                    <li>
+                        {filtered.ingredients}
+                    </li>
+                }
+
             </div>
             <div className="mx-5 ">
                 <p className="h3 my-3">Direction</p>
