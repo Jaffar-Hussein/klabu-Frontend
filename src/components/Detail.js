@@ -46,7 +46,7 @@ function Detail({ user }) {
             <div className="m-5 ">
                 <p className="h3 my-3">Ingredients</p>
                 {nameArr.map((arr) => {
-                   return <li className="">{arr}</li>
+                   return <li key={arr} className="">{arr}</li>
                 })}
             </div>
             <div className="mx-5 ">

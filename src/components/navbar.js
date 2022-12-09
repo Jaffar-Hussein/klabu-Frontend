@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from '../assets/login.png'
 import '../css/main.css'
 
-function NavBar({user}) {
+function NavBar({ user }) {
     // function handleLogoutClick() {
     //     fetch("http://127.0.0.1:3000/logout", { method: "DELETE" }).then((r) => {
     //       if (r.ok) {
@@ -15,7 +15,9 @@ function NavBar({user}) {
         <nav className="navbar navbar-expand-lg">
             <div className="container">
                 <a className="navbar-brand" href="#">
-                    <img className="" src={logo} alt="logo" height="100" />
+                    <NavLink>
+                        <img className="" src={logo} alt="logo" height="100" to='/' />
+                    </NavLink>
                 </a>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +34,7 @@ function NavBar({user}) {
 
                         </li>
                         <li className="nav-item" >
-                            <NavLink className="nav-link text-light" to='/' >Upload</NavLink>
+                            <NavLink className="nav-link text-light" to='/upload' >Upload</NavLink>
 
                         </li>
                         <li className="nav-item" >

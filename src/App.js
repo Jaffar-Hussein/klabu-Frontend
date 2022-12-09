@@ -7,7 +7,7 @@ import { Routes, Route, useNavigate, NavLink } from "react-router-dom";
 import Home from './components/Home';
 import Detail from './components/Detail';
 import Recipes from './components/Recipes';
-
+import Upload from './components/upload';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -54,6 +54,7 @@ console.log(user);
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path={`/:id`} element={<Detail user={user} />} />
         <Route path='/recipes' element={<Recipes recipes={recipes} categories={categories} user = {user}/>} />
+        <Route path ='/upload' element={<Upload  setRecipes={setRecipes} recipes={recipes} user={user}/>} />
       </Routes>
 
     </>
