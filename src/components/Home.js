@@ -9,7 +9,7 @@ import Category from "./category";
 import Vector from '../assets/Vector.svg'
 import '../css/main.css'
 
-function Home() {
+function Home({user}) {
   const [categories, setCategories] = useState([]);
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
@@ -27,7 +27,7 @@ function Home() {
     <>
       <div className="top_page">   
       
-         <NavBar />
+         <NavBar user={user}/>
 
         <Hero />
         {/* <Popular recipes={recipes} cat={categories} /> */}

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from '../assets/login.png'
 import '../css/main.css'
 
-function NavBar() {
+function NavBar({user}) {
     // function handleLogoutClick() {
     //     fetch("http://127.0.0.1:3000/logout", { method: "DELETE" }).then((r) => {
     //       if (r.ok) {
@@ -32,7 +32,7 @@ function NavBar() {
 
                         </li>
                         <li className="nav-item" >
-                            <NavLink className="nav-link text-light" to='/' >Categories</NavLink>
+                            <NavLink className="nav-link text-light" to='/' >Upload</NavLink>
 
                         </li>
                         <li className="nav-item" >
@@ -41,7 +41,7 @@ function NavBar() {
                         </li>
 
                         <li className="nav-item unstyled">
-                            <NavLink className="nav-link  text-light" to="/">Jaffar</NavLink>
+                            <NavLink className="nav-link  text-light" to="/">{user.username}</NavLink>
                         </li>
                     </ul>
 
