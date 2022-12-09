@@ -1,10 +1,34 @@
 import '../style.css';
 import signup from '../assets/login.png'
 import { useForm } from 'react-hook-form';
-
-function Signup(){
+import { useState} from 'react'
+function Signup({onLogin}){
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+
+  const onSubmit = data =>{
+    fetch('http://127.0.0.1:3000/signup', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    method: 'POST',
+    body: JSON.stringify({
+        "phone":data.phonenumber,
+        "password":data.password,
+        "username":data.username,
+        "email":data.email
+    })
+   
+  })
+  .then(r => 
+    {
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) =>console.log(err));
+      }
+    })
+  };
   console.log(errors.phonenumber?.message);
 return(
 <>

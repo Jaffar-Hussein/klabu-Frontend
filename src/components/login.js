@@ -2,10 +2,11 @@ import '../style.css';
 import login from '../assets/login.png'
 import { useState} from 'react'
 import { useForm } from 'react-hook-form';
-
+import { useNavigate } from "react-router-dom";
 function Login({ onLogin }){
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [auth_error, setauth_error] = useState('');
+  const navigate = useNavigate();
   const onSubmit = data => {
     fetch('http://127.0.0.1:3000/login', {
       headers: {
@@ -23,22 +24,12 @@ function Login({ onLogin }){
     {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
+        navigate("/");
       } else {
         r.json().then((err) =>auth_error(err.errors[0]));
       }
     })
-  // .then(data => {
-  //   if (data.errors){
-  //     setauth_error(data.errors[0])
-  //   }else{
-      
-  //   }
-  // }
-  //   )
   };
-  
-
-
     return (
         <>
         

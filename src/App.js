@@ -6,13 +6,12 @@ import { Routes, Route, useNavigate, NavLink } from "react-router-dom";
 import Home from './components/Home';
 import Detail from './components/Detail';
 
-window.user = "Nathan";
+
 
 function App() {
   const [recipes, setRecipes] = useState([]);
   const [user, setUser] = useState(null);
 
-  let navigate = useNavigate();
   useEffect(() => {
     fetch(`http://localhost:3000/recipes/`)
       .then(r => r.json())
@@ -30,7 +29,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path='/signup' element={<SignUp />} />
+      <Route path='/signup' element={<SignUp onLogin={setUser} />} />
       <Route path='/login' element={<Login onLogin={setUser} />} />
       <Route path={`/:detail`} element={<Detail />} />
     </Routes>
