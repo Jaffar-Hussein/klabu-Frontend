@@ -43,6 +43,7 @@ function Detail({ user }) {
 
     return (
         <>
+           <NavBar user={user}/>
             <div className="text-center">
                 <p className="h3 my-5">{filtered.title}</p>
                 <div>

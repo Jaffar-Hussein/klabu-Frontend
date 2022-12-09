@@ -8,8 +8,8 @@ function Cards({recipes, cat}) {
     return (
         <div className='d-flex justify-content-around flex-wrap'>
          {recipes.map((rec)=> {
-              return <div className="card my-3" key={rec.id} style={{ width: '400px', borderRadius: '6%' }}>
-               <img className="card-img-top" src={rec.picture} alt="Card image" style={{ width: '100%',    height: '15vw' }} />
+              return <div className="card my-3" key={rec.id} style={{ width: '25vw', borderRadius: '6%' }}>
+               <img className="card-img-top img-fluid" src={rec.picture} alt="Card image" style={{ width: '100%',    height: '15vw',objectFit:'cover' }} />
                <div className="card-body">
                    <h4 className="card-title text-dark">{rec.title}</h4>
                    <p className="card-text text-dark text-truncate">{rec.description}</p>

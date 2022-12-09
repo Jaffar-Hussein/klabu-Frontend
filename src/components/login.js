@@ -2,9 +2,8 @@ import '../style.css';
 import login from '../assets/login.png'
 import { useState} from 'react'
 import { useForm } from 'react-hook-form';
-import Signup from './signup';
+
 function Login({onLogin, setShowLogin}){
- 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [auth_error, setauth_error] = useState('');
   const onSubmit = data => {
@@ -23,6 +22,7 @@ function Login({onLogin, setShowLogin}){
     if (r.ok) {
       r.json().then((user) => onLogin(user));
     } else {
+      r.json().then(console.log(r))
     }
   });
   };
