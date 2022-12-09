@@ -2,8 +2,9 @@ import '../style.css';
 import login from '../assets/login.png'
 import { useState} from 'react'
 import { useForm } from 'react-hook-form';
-import { useNavigate } from "react-router-dom";
-function Login({ onLogin }){
+
+function Login({onLogin}){
+ 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [auth_error, setauth_error] = useState('');
   const navigate = useNavigate();
@@ -15,20 +16,16 @@ function Login({ onLogin }){
       },
     method: 'POST',
     body: JSON.stringify({
-        "phone":data.phonenumber,
-        "password":data.password
-    })
-   
-  })
-  .then(r => 
-    {
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-        navigate("/");
-      } else {
-        r.json().then((err) =>auth_error(err.errors[0]));
-      }
-    })
+      "phone":data.phonenumber,
+      "password":data.password
+    }),
+  
+  }).then((r) => {
+    if (r.ok) {
+      r.json().then((user) => onLogin(user));
+    } else {
+    }
+  });
   };
     return (
         <>
