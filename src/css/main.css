@@ -1,65 +1,99 @@
-.logo{
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-top: -6px;
+.logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -6px;
 }
+
 .nav.navbar-nav li a {
-    color: #fff !important;
-  }
-  .navbar-nav > li{
-    padding-left:30px;
-    padding-right:30px;
-  }
- .text-footer{
+  color: #fff !important;
+}
+
+.navbar-nav>li {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.text-footer {
   color: #F37A37;
- }
-    
- 
-  .top_page{
-    position: relative;
-  
+}
+
+.detailBg {
+  background-image: url('../assets/Rectangle\ 27.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+
+.btn-outline-primary {
+  border-color: #F37A37 !important;
+}
+
+.rectext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 7px;
+}
+
+.top_page {
+  position: relative;
 
 
-  }
-  .call{
-    position: relative;
-    
-  }
-  .recipeBook{
-    position: absolute;
-    bottom:1;
-  }
-  .actiono-her{
-    position: absolute;
-    
-  }
-   .bgGradient{
-    position: absolute;
-    top: 0;
-    right:0;
-    z-index: -1;
-    transform: rotate(0.43deg) !important;
-  }
-  .mini-pics{
-    position: absolute;
-    top: 15%;
-    right: 5%;
 
-  }
- 
-  .hero{
-    position: relative;
-  }
-  .title{
-    color: #F37A37 !important;
-  }
-  .spacing{
-    letter-spacing: 5px !important;
-  }
- .popular-img{
+}
+
+.call {
+  position: relative;
+
+}
+
+.recipeBook {
+  position: absolute;
+  bottom: 1;
+}
+
+.actiono-her {
+  position: absolute;
+
+}
+
+.detsBg {
+  height: 70vh;
+
+}
+
+.bgGradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transform: rotate(0.43deg) !important;
+}
+
+.mini-pics {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+
+}
+
+.hero {
+  position: relative;
+}
+
+.title {
+  color: #F37A37 !important;
+}
+
+.spacing {
+  letter-spacing: 5px !important;
+}
+
+.popular-img {
   height: 50%;
   width: 30%;
-  
- }
+
+}

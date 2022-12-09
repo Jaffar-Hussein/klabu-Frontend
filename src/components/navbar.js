@@ -28,7 +28,7 @@ function NavBar() {
                             <NavLink className="nav-link active text-light " aria-current="page" end to="/"    >Home</NavLink>
                         </li>
                         <li className="nav-item " >
-                            <NavLink className="nav-link text-light " to='/' >Recipes</NavLink>
+                            <NavLink className="nav-link text-light " to='/recipes' >Recipes</NavLink>
 
                         </li>
                         <li className="nav-item" >
