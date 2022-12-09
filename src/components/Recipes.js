@@ -4,7 +4,7 @@ import Cards from "./Cards";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import '../css/main.css'
 
-function Recipes({recipes, categories}){
+function Recipes({recipes, categories, user}){
 const [display, setDisplay] = useState([]);
 const [title, setTitle] = useState("");
 function displayChange(cat){
@@ -28,7 +28,7 @@ function displayChange(cat){
 
     return (
         <>
-        <NavBar />
+        <NavBar user={user}/>
         <div className="top_page">
                <div className="detailBg">
     

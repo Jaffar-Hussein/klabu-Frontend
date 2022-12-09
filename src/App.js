@@ -52,7 +52,7 @@ console.log(user);
         <Route path='/signup' element={<SignUp />} />
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path={`/:id`} element={<Detail user={user} />} />
-        <Route path='/recipes' element={<Recipes recipes={recipes} categories={categories}/>} />
+        <Route path='/recipes' element={<Recipes recipes={recipes} categories={categories} user = {user}/>} />
       </Routes>
 
     </>
