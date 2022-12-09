@@ -1,27 +1,42 @@
 import '../style.css';
 import login from '../assets/login.png'
+import { useState} from 'react'
 import { useForm } from 'react-hook-form';
 
-function Login(){
- 
+function Login({ onLogin }){
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [auth_error, setauth_error] = useState('');
   const onSubmit = data => {
     fetch('http://127.0.0.1:3000/login', {
-      
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
     method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify({
-      "phone":data.phonenumber,
-      "password":data.password
+        "phone":data.phonenumber,
+        "password":data.password
     })
-  
-  });
+   
+  })
+  .then(r => 
+    {
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) =>auth_error(err.errors[0]));
+      }
+    })
+  // .then(data => {
+  //   if (data.errors){
+  //     setauth_error(data.errors[0])
+  //   }else{
+      
+  //   }
+  // }
+  //   )
   };
-  console.log(errors.phonenumber?.message);
-
+  
 
 
     return (
@@ -56,25 +71,28 @@ function Login(){
                   }})}  
 
                    />
-                  <label className='text-secondary' >Phone Number</label>
+                  <label className='text-white' >Phone Number</label>
                   <div className="invalid-feedback" id="floatingInputFeedback">{errors.phonenumber?.message}</div>
                 </div>
                 
 
                 <div className="form-floating mb-3">
-                  <input type="password" name="password" className={`form-control pass ${errors.password ? 'is-invalid' : ''} `}id="floatingPassword" autoComplete="current-password webauthn" placeholder="password"
+                  <input type="password" name="password" className={`form-control text-white userName pass ${errors.password ? 'is-invalid' : ''} `}id="floatingPassword" autoComplete="current-password webauthn" placeholder="password"
                    {...register("password", {required: "Please input your password"})} />
-                  <label className='text-secondary' >Enter Password</label>
+                  <label className='text-white' >Password</label>
                   <div className="invalid-feedback" id="floatingPasswordFeedback">{errors.password?.message}</div>
                 </div>
 
                 <div className="form-check mb-3">
                 <input className={`form-check-input ${errors.Tearms ? 'is-invalid' : ''} `}  type="checkbox" id="rememberPasswordCheck" 
                 placeholder="Tearms and Conditions" {...register("Tearms", {required: "Check to agree to the Tearms and Conditions"})} />
-                  <label className="form-check-label text-secondary">
-                    I agree to terms and condition
+                  <label className="form-check-label text-muted">
+                    I agree to the terms and condition
                   </label>
                   <div className="invalid-feedback" id="floatingPasswordFeedback">{errors.Tearms?.message}</div>
+                </div>
+                <div className={`invalid-feedback my-2 ${auth_error ? 'd-block' : ''}`}>
+                  {auth_error}
                 </div>
                 <div className="d-grid form mb-3">
                   <button className="btn btn-lg btn-primary btn-login  mb-2" type="submit">Sign in</button>

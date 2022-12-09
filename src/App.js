@@ -14,23 +14,24 @@ function App() {
 
   let navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:3000/recipes`)
+    fetch(`http://localhost:3000/recipes/`)
       .then(r => r.json())
       .then((data) => setRecipes(data));
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:3000/me`).then((r)=> {
+    fetch(`http://localhost:3000/me/`).then((r)=> {
       if (r.ok){
         r.json().then((user) => setUser(user));
       }
     });
   }, []);
-  if (!user) return <Login />;
+  if (!user) return <Login onLogin={setUser}  />;
+  
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path='/signup' element={<SignUp />} />
-      <Route path='/login' element={<Login />} />
+      <Route path='/login' element={<Login onLogin={setUser} />} />
       <Route path={`/:detail`} element={<Detail />} />
     </Routes>
 
