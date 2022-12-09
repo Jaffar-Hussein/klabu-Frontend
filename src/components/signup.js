@@ -2,7 +2,7 @@ import '../style.css';
 import signup from '../assets/login.png'
 import { useForm } from 'react-hook-form';
 import { useState} from 'react'
-function Signup({onLogin}){
+function Signup({onLogin, setShowLogin}){
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = data =>{
@@ -98,7 +98,7 @@ return(
                  </div>
                </div>
                <div className="d-grid form mb-3">
-                 <button className="btn btn-lg btn-secondary btn-login  mb-2" type="submit">Sign Up</button>
+                 <button className="btn btn-lg btn-secondary btn-login  mb-2" type="submit" onClick={() =>  setShowLogin(true)}>Sign Up</button>
                  <div className="text-center">
                  </div>
                </div>

@@ -2,8 +2,8 @@ import '../style.css';
 import login from '../assets/login.png'
 import { useState} from 'react'
 import { useForm } from 'react-hook-form';
-
-function Login({onLogin}){
+import Signup from './signup';
+function Login({onLogin, setShowLogin}){
  
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [auth_error, setauth_error] = useState('');
@@ -26,6 +26,8 @@ function Login({onLogin}){
     }
   });
   };
+  
+  
     return (
         <>
         
@@ -82,22 +84,24 @@ function Login({onLogin}){
                   {auth_error}
                 </div>
                 <div className="d-grid form mb-3">
-                  <button className="btn btn-lg btn-primary btn-login  mb-2" type="submit">Sign in</button>
+                  <button className="btn btn-lg btn-primary btn-login  mb-2" type="submit" >Sign in</button>
                   <div className="text-center">
                   </div>
                 </div>
-                <div className="d-grid form mb-3">
-                  <button className="btn btn-lg btn-secondary btn-login  mb-2" type="submit">Create Account</button>
-                  <div className="text-center">
-                  </div>
-                </div>
+               
                 {/* <div className="mb-12 mt-3 ml-5">
                     <small className="text-muted float-left">
                         Don't have an Account? <a className="ml-2" type="button" >Create Account</a>
+
                     </small>
                 </div> */}
          
               </form>
+              <div className="d-grid form mb-3">
+                  <button className="btn btn-lg btn-secondary btn-login  mb-2"  onClick={() => setShowLogin(false)}>Create Account</button>
+                  <div className="text-center">
+                  </div>
+                </div>
             </div>
           </div>
         </div>

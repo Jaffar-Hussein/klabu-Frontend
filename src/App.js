@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 import Login from './components/login';
+import LoginSwitch from './components/LoginSwitch';
 import SignUp from './components/signup';
 import { Routes, Route, useNavigate, NavLink } from "react-router-dom";
 import Home from './components/Home';
@@ -43,13 +44,13 @@ function App() {
   //   }
   // }, []);
 console.log(user);
-  if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <LoginSwitch onLogin={setUser} />;
 
   return (
     <>
       <Routes>
         <Route path="/" element={<Home user={user} />} />
-        <Route path='/signup' element={<SignUp />} />
+        {/* <Route path='/signup' element={<SignUp />} /> */}
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path={`/:id`} element={<Detail user={user} />} />
         <Route path='/recipes' element={<Recipes recipes={recipes} categories={categories} user = {user}/>} />
