@@ -22,9 +22,10 @@ function Login({onLogin, setShowLogin}){
     if (r.ok) {
       r.json().then((user) => onLogin(user));
     } else {
-      r.json().then(console.log(r))
+      r.json().then(r => setauth_error(r.errors[0]))
     }
-  });
+  })
+  
   };
   
   

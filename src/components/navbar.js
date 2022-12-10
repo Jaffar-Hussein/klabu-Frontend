@@ -5,17 +5,7 @@ import logo from '../assets/login.png'
 import '../css/main.css'
 
 function NavBar({ user }) {
-    // const navigate = useNavigate()
-    // function handleLogoutClick() {
-    //     fetch("https://klabu-backend-production.up.railway.app/logout/", { method: "POST" })
-    //     .then((r) => {
-    //         // navigate("/login")
-    //         console.log("hello" + r.json());
-    //       if (r.ok) {
-    //         // setUser(null);
-    //       }
-    //     });
-    //   }
+
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container">
@@ -63,11 +53,6 @@ function NavBar({ user }) {
                         </li>
                     </ul>
 
-
-                    {/* <ul className="navbar-nav me-auto mb-2 ">
-
-
-                    </ul> */}
                 </div>
             </div>
         </nav >
