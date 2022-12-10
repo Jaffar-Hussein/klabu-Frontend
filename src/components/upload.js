@@ -10,7 +10,7 @@ function Upload({ recipes, user, setRecipes }) {
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/categories")
+        fetch("https://klabu-backend-production.up.railway.app//categories")
             .then(response => response.json())
             .then((cat) => setCategories(cat));
     }, []);

@@ -1,5 +1,4 @@
-import foodA from '../assets/foodA.png'
-import foodB from '../assets/FoodB.png'
+
 import '../css/main.css'
 import { Link } from "react-router-dom"
 import Blob from '../assets/blob.svg'

@@ -14,12 +14,12 @@ function Home({user}) {
   const [categories, setCategories] = useState([]);
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/categories`)
+    fetch(`https://klabu-backend-production.up.railway.app/categories`)
     .then(r => r.json())
     .then((data) => setCategories(data));
   },[])
   useEffect(() => {
-    fetch(`http://localhost:3000/recipes`)
+    fetch(`https://klabu-backend-production.up.railway.app/recipes`)
     .then(r => r.json())
     .then((data) => setRecipes(data));
   },[]);

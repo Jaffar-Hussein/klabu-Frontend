@@ -9,18 +9,18 @@ function Category({ recipes, categories }) {
 
 
     useEffect(() => {
-        fetch("http://localhost:3000/categories/1`")
+        fetch("https://klabu-backend-production.up.railway.app/categories/1`")
             .then(r => r.json())
             .then(data => setDessert(data.recipes))
     },
         []);
     useEffect(() => {
-        fetch("http://localhost:3000/categories/2")
+        fetch("https://klabu-backend-production.up.railway.app/categories/2")
             .then(r => r.json())
             .then(data => setLunch(data.recipes))
     }, []);
     useEffect(() => {
-        fetch("http://localhost:3000/categories/3")
+        fetch("https://klabu-backend-production.up.railway.app/categories/3")
             .then(r => r.json())
             .then(data => setDinner(data.recipes))
     }, []);

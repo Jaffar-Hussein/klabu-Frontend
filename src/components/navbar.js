@@ -6,7 +6,7 @@ import '../css/main.css'
 
 function NavBar({ user }) {
     function handleLogoutClick() {
-        fetch("http://127.0.0.1:3000/logout/", { method: "POST" })
+        fetch("https://klabu-backend-production.up.railway.app/logout/", { method: "POST" })
         .then((r) => {
             console.log("hello" + r.json());
           if (r.ok) {

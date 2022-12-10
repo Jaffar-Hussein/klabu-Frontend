@@ -6,7 +6,7 @@ function Signup({onLogin, setShowLogin}){
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = data =>{
-    fetch('http://127.0.0.1:3000/signup', {
+    fetch('https://klabu-backend-production.up.railway.app/signup', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

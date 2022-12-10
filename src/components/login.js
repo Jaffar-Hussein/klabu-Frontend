@@ -7,7 +7,7 @@ function Login({onLogin, setShowLogin}){
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [auth_error, setauth_error] = useState('');
   const onSubmit = data => {
-    fetch('http://127.0.0.1:3000/login', {
+    fetch('https://klabu-backend-production.up.railway.app/login', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
