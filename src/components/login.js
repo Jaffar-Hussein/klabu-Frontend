@@ -17,7 +17,6 @@ function Login({onLogin, setShowLogin}){
       "phone":data.phonenumber,
       "password":data.password
     }),
-  
   }).then((r) => {
     if (r.ok) {
       r.json().then((user) => onLogin(user));
@@ -25,15 +24,10 @@ function Login({onLogin, setShowLogin}){
       r.json().then(r => setauth_error(r.errors[0]))
     }
   })
-  
   };
-  
-  
     return (
         <>
-        
   <div className="row g-0">
-   
     <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image ">
     </div>
     <div className="col-md-8 col-lg-6 signup login">
@@ -59,20 +53,16 @@ function Login({onLogin, setShowLogin}){
                     value:/^\+254/i,
                     message:"Input your phone number +254.."
                   }})}  
-
                    />
                   <label className='text-white' >Phone Number</label>
                   <div className="invalid-feedback" id="floatingInputFeedback">{errors.phonenumber?.message}</div>
                 </div>
-                
-
                 <div className="form-floating mb-3">
                   <input type="password" name="password" className={`form-control text-white userName pass ${errors.password ? 'is-invalid' : ''} `}id="floatingPassword" autoComplete="current-password webauthn" placeholder="password"
                    {...register("password", {required: "Please input your password"})} />
                   <label className='text-white' >Password</label>
                   <div className="invalid-feedback" id="floatingPasswordFeedback">{errors.password?.message}</div>
                 </div>
-
                 <div className="form-check mb-3">
                 <input className={`form-check-input ${errors.Tearms ? 'is-invalid' : ''} `}  type="checkbox" id="rememberPasswordCheck" 
                 placeholder="Tearms and Conditions" {...register("Tearms", {required: "Check to agree to the Tearms and Conditions"})} />
@@ -89,14 +79,6 @@ function Login({onLogin, setShowLogin}){
                   <div className="text-center">
                   </div>
                 </div>
-               
-                {/* <div className="mb-12 mt-3 ml-5">
-                    <small className="text-muted float-left">
-                        Don't have an Account? <a className="ml-2" type="button" >Create Account</a>
-
-                    </small>
-                </div> */}
-         
               </form>
               <div className="d-grid form mb-3">
                   <button className="btn btn-lg btn-secondary btn-login  mb-2"  onClick={() => setShowLogin(false)}>Create Account</button>
@@ -108,7 +90,6 @@ function Login({onLogin, setShowLogin}){
         </div>
       </div>
     </div>
-   
   </div>
         </>
         );

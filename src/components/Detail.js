@@ -11,7 +11,7 @@ function Detail({ user }) {
     const [stuff, setStuff] = useState([]);
     let { id } = useParams();
     useEffect(() => {
-        fetch(`https://klabu-backend-production.up.railway.app/${id}`)
+        fetch(`https://klabu-backend-production.up.railway.app/recipes/${id}`)
             .then(response => response.json())
             // .then((rec) => setFiltered(rec));
             .then(response => console.log(response))

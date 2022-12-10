@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { NavLink,useNavigate } from "react-router-dom";
+import React from "react";
+import { NavLink} from "react-router-dom";
 import logo from '../assets/login.png'
 
 import '../css/main.css'
 
 function NavBar({ user }) {
-
+    const logOut = () => {
+        window.location.reload();
+    }
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container">
@@ -42,7 +44,7 @@ function NavBar({ user }) {
                        </li>
                         <li className="nav-item unstyled">
                         
-                        <button type="button" className="btn btn-outline" >
+                        <button type="button" className="btn btn-outline" onClick={logOut} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"></path>
                             <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"></path>

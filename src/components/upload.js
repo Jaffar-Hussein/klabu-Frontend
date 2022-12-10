@@ -10,7 +10,7 @@ function Upload({ recipes, user, setRecipes }) {
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
-        fetch("https://klabu-backend-production.up.railway.app//categories")
+        fetch("https://klabu-backend-production.up.railway.app/categories")
             .then(response => response.json())
             .then((cat) => setCategories(cat));
     }, []);
@@ -33,7 +33,7 @@ function Upload({ recipes, user, setRecipes }) {
         const formData = { title: records.title, category_id: records.category, description: records.description, picture: records.picture, ingredient: records.ingredient, direction: records.direction, user_id: user.id };
 
         console.log(">>>>>", formData);
-        fetch("http://localhost:3000/recipes", {
+        fetch("https://klabu-backend-production.up.railway.app/recipes", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
