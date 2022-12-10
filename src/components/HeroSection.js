@@ -1,13 +1,14 @@
 import '../css/main.css'
 import hero from '../assets/Hero.png'
-import foodA from '../assets/foodA.png'
-import foodB from '../assets/FoodB.png'
+import { useNavigate } from "react-router-dom";
 
 
-import { Link, NavLink } from "react-router-dom"
 
 function HeroSection() {
-    
+    const navigate = useNavigate()
+    const upload_page = () => {
+        navigate("/upload")
+    }
     return (
         <div className="container">
             <div className="row align-items-center hero" >
@@ -18,11 +19,11 @@ function HeroSection() {
                         break out this collection of favorite soups, stews
                         casseroles, and meaty classics.</p>
                     {/* <div className='d-flex justify-content-center '> */}
-                    <NavLink>
-                        <button className="btn btn-primary rounded-pill " to="/upload">
+                    
+                        <button className="btn btn-primary rounded-pill " onClick={upload_page}>
                             Upload Recipe
                         </button>
-                    </NavLink>
+                    
 
                     {/* </div> */}
 
