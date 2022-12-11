@@ -13,8 +13,8 @@ function Detail({ user }) {
     useEffect(() => {
         fetch(`https://klabu-backend-production.up.railway.app/recipes/${id}`)
             .then(response => response.json())
-            // .then((rec) => setFiltered(rec));
-            .then(response => console.log(response))
+            .then((rec) => setFiltered(rec));
+            // .then(response => console.log(response))
     }, [])
 
     let nameArr = []
@@ -29,7 +29,7 @@ function Detail({ user }) {
         otherArr = filtered.ingredients.includes(',')
 
     }
-    if (typeof filtered.ingredients !== 'undefined') {
+    if (typeof filtered.ingredients !== 'undefined' && filtered.ingredients !== null) {
         //    console.log(filtered.ingredients.includes(","));
 
 
@@ -38,7 +38,7 @@ function Detail({ user }) {
 
 
     }
-    console.log(nameArr);
+    console.log(filtered.title);
     console.log(otherArr);
 
 
@@ -46,7 +46,7 @@ function Detail({ user }) {
         <>
            <NavBar user={user}/>
             <div className="text-center">
-                <p className="h3 my-5">{filtered.title}</p>
+                <p className="h3 my-5 text-light">{filtered.title}</p>
                 <div>
                     <p className="text-break">
                         {filtered.description}</p>

@@ -14,19 +14,19 @@ function App() {
   const [categories, setCategories]= useState([]);
   const [user, setUser] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:3000/categories`)
+    fetch(`https://klabu-backend-production.up.railway.app/categories`)
       .then(r => r.json())
       .then((data) => setCategories(data));
   }, []);
   // let navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:3000/recipes`)
+    fetch(`https://klabu-backend-production.up.railway.app/recipes`)
       .then(r => r.json())
       .then((data) => setRecipes(data));
   }, []);
   useEffect(() => {
     // auto-login
-    fetch("http://localhost:3000/me").then((r) => {
+    fetch("https://klabu-backend-production.up.railway.app/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }

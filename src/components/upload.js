@@ -8,7 +8,7 @@ function Upload({ recipes, user, setRecipes }) {
 
     const [categories, setCategories] = useState([]);
     const [records, setRecords] = useState([]);
-
+    const [selected, setSelected] = useState([]);
     useEffect(() => {
         fetch("https://klabu-backend-production.up.railway.app/categories")
             .then(response => response.json())
@@ -16,22 +16,36 @@ function Upload({ recipes, user, setRecipes }) {
     }, []);
     function handleChange(e) {
         const value = e.target.value;
-        if(e.target.name === "category"){
-            console.log(">>",value);
-        }
+
+
         setRecords({
             ...records,
             [e.target.name]: value
+
         });
+        // if (e.target.name !== "category") {
+        //     setSelected(e.target.name);
+        //     setRecords({
+        //         ...records,
+        //         category: 3
+
+        //     });
+        //     console.log(">>>>>>>", typeof e.target.value);
+        // }
+
 
 
     }
+    // console.log(categories);
 
     function handleSubmit(e) {
         e.preventDefault();
 
         const formData = { title: records.title, category_id: records.category, description: records.description, picture: records.picture, ingredient: records.ingredient, direction: records.direction, user_id: user.id };
 
+        if (formData.category_id === undefined) {
+            formData.category_id = 3
+        }
         console.log(">>>>>", formData);
         fetch("https://klabu-backend-production.up.railway.app/recipes", {
             method: "POST",
@@ -68,13 +82,22 @@ function Upload({ recipes, user, setRecipes }) {
 
                             <div className="my-5">
                                 <label>Category</label>
-                                <select onChange={handleChange} name="category" value="pastries" className=' form-select' >
+                                {/* <select onChange={handleChange} name="category" value="Pastries" className='form-select' >
 
                                     {categories.map((c, index) => {
                                         return <option key={index} value={c.id}>
                                             {c.name}
                                         </option>;
                                     })}
+                                </select> */}
+                                <select onChange={handleChange} name="category" className='form-select' >
+
+                                    {categories.map((c, index) => {
+                                        return <option key={index} value={c.id}>
+                                            {c.name}
+                                        </option>;
+                                    })}
+
                                 </select>
 
                             </div>

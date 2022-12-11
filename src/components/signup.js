@@ -84,7 +84,7 @@ return(
                  <div className="invalid-feedback" id="floatingEmailFeedback">{errors.email?.message}</div>
                </div>
                <div className="form-floating mb-3">
-                  <input type="password" name="password" className={`form-control pass ${errors.password ? 'is-invalid' : ''} `}id="floatingPassword" autoComplete="current-password webauthn" placeholder="password"
+                  <input type="password" name="password" className={`form-control pass text-white ${errors.password ? 'is-invalid' : ''} `}id="floatingPassword" autoComplete="current-password webauthn" placeholder="password"
                    {...register("password", {required: "Please input your password"})} />
                   <label className='text-secondary' >Enter Password</label>
                   <div className="invalid-feedback" id="floatingPasswordFeedback">{errors.password?.message}</div>
